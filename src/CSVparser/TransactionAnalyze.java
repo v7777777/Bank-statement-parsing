@@ -62,9 +62,11 @@ public class TransactionAnalyze {
         System.out.printf("Total income %7.2f RUR %n ", totalIncome);
     }
 
-    public static void getCostSummary (TransactionParseResult result) {
+    public static void getSummary (TransactionParseResult result, Type type) {
 
-        System.out.println("*********Costs summary******************");
+      if (type == Type.COST) {System.out.println("*********Costs summary******************");}
+      else  {System.out.println("*********Income summary*****************");}
+
         sort (result);
         String temp = "";  // предыдущее название
         double totalAmount = 0; // сумма по расходу
@@ -73,46 +75,26 @@ public class TransactionAnalyze {
 
         {
 
-            if ((result.getTransactionList().get(x).getCost() == 0) && !(x == (result.getTransactionList().size() - 1))) {continue;}
+            if ((getTransactionTypeAndValue(x, result, type) == 0) && !(x == (result.getTransactionList().size() - 1))) {continue;}
 
             if (temp.equals(result.getTransactionList().get(x).getCounterparty()) || x == 0 ) {
-                totalAmount = totalAmount + result.getTransactionList().get(x).getCost();
+                totalAmount = totalAmount + getTransactionTypeAndValue(x, result, type);
                 temp = result.getTransactionList().get(x).getCounterparty();
                 if (x == (result.getTransactionList().size() - 1) ) { System.out.printf(PRINT_COST_SUMMARY_FORMAT, temp ,totalAmount);}}
 
             else {
                 if (totalAmount != 0) {System.out.printf(PRINT_COST_SUMMARY_FORMAT, temp ,totalAmount);}
                 totalAmount = 0;
-                totalAmount = totalAmount + result.getTransactionList().get(x).getCost();
+                totalAmount = getTransactionTypeAndValue(x, result, type);
                 temp = result.getTransactionList().get(x).getCounterparty();
                 if (x == (result.getTransactionList().size() - 1) && totalAmount != 0 ) { System.out.printf(PRINT_COST_SUMMARY_FORMAT, temp ,totalAmount);   }} }
 
     }
 
-    public static void getIncomeSummary (TransactionParseResult result) {
+    private static double getTransactionTypeAndValue (int index, TransactionParseResult result, Type type) {
 
-        System.out.println("*********Incomes summary*********");
-        sort (result);
-        String temp = "";  // предыдущее название
-        double totalAmount = 0; // сумма по расходу
-
-        for (int x = 0; x < result.getTransactionList().size(); x++)
-
-        {
-
-              if ((result.getTransactionList().get(x).getIncome() == 0) && !(x == (result.getTransactionList().size() - 1))) {continue;}
-
-              if (temp.equals(result.getTransactionList().get(x).getCounterparty()) || x == 0 ) {
-                totalAmount = totalAmount + result.getTransactionList().get(x).getIncome();
-                temp = result.getTransactionList().get(x).getCounterparty();
-                if (x == (result.getTransactionList().size() - 1) ) { System.out.printf(PRINT_COST_SUMMARY_FORMAT, temp ,totalAmount);}}
-
-              else {
-               if (totalAmount != 0) {System.out.printf(PRINT_COST_SUMMARY_FORMAT, temp ,totalAmount);}
-                totalAmount = 0;
-                totalAmount = totalAmount + result.getTransactionList().get(x).getIncome();
-                temp = result.getTransactionList().get(x).getCounterparty();
-                if (x == (result.getTransactionList().size() - 1) && totalAmount != 0 ) { System.out.printf(PRINT_COST_SUMMARY_FORMAT, temp ,totalAmount);   }} }
+             if (type == Type.COST) {    return  result.getTransactionList().get(index).getCost(); }
+             else { return  result.getTransactionList().get(index).getIncome(); }
 
              }
 

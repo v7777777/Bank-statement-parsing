@@ -16,6 +16,7 @@ public class Transaction {
     private int incomeC; // [7]
     private long costR; // [8]
     private int costC; // [9]
+    private Type type;
 
     public Transaction(String accountNumber, Currency currency,
                        LocalDate transactionDate, String mccCode,
@@ -56,4 +57,14 @@ public class Transaction {
         double income = (double) incomeR + (double) incomeC/100;
         return income;
     }
+
+    public void setTransactionType() {
+
+        if (this.getCost() == 0) { this.type = Type.INCOME;}
+        else {this.type = Type.COST;}
+    }
+
+
+
+
 }

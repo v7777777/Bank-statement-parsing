@@ -1,5 +1,6 @@
 import CSVparser.TransactionAnalyze;
 import CSVparser.TransactionParser;
+import CSVparser.Type;
 
 import java.io.IOException;
 
@@ -20,8 +21,9 @@ public class Main {
         TransactionAnalyze.printParsedSortedBankStatement(parser.parseData("sources/movementList.csv"));
         TransactionAnalyze.getTotalCost(parser.parseData("sources/movementList.csv"));
         TransactionAnalyze.getTotalIncome(parser.parseData("sources/movementList.csv"));
-        TransactionAnalyze.getIncomeSummary (parser.parseData("sources/movementList.csv"));
-        TransactionAnalyze.getCostSummary(parser.parseData("sources/movementList.csv"));
+
+        TransactionAnalyze.getSummary(parser.parseData("sources/movementList.csv"), Type.INCOME);
+        TransactionAnalyze.getSummary(parser.parseData("sources/movementList.csv"), Type.COST);
 
 
            } }

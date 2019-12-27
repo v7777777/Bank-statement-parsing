@@ -34,7 +34,11 @@ public class TransactionParser {
 
              if (columns.length != 8) {notValidLines.add(lines.get(i)); continue;}
 
-            addTransaction(structuredTable, columns); }
+            addTransaction(structuredTable, columns);
+
+            structuredTable.get(i-1).setTransactionType();
+
+            }
 
             else {
 
@@ -42,7 +46,9 @@ public class TransactionParser {
 
              if (columns.length != 8) {notValidLines.add(lines.get(i)); continue;}
 
-              addTransaction(structuredTable, columns);  }
+              addTransaction(structuredTable, columns);
+              structuredTable.get(i-1).setTransactionType();
+            }
 
         }
 
@@ -85,6 +91,8 @@ public class TransactionParser {
                                   parseCents(columns [6]), // int income cents
                                   parseRubs(columns [7]), // long cost rubs
                                   parseCents(columns [7])));  // int cost cents
+
+
 
         return parsedLines;
     }
