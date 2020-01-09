@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7e482677-7a7b-4a0b-80e4-4b20f7ae51fd" name="Default Changelist" comment="" />
+    <list default="true" id="7e482677-7a7b-4a0b-80e4-4b20f7ae51fd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/дз 9 3/CSVparser/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/дз 9 3/CSVparser/Transaction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/дз 9 3/CSVparser/TransactionAnalyze.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/дз 9 3/CSVparser/TransactionAnalyze.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/дз 9 3/CSVparser/Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/дз 9 3/CSVparser/Type.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/дз 9 3/META-INF/дз 9 3.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSVparser/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSVparser/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSVparser/TransactionAnalyze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSVparser/TransactionAnalyze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSVparser/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSVparser/Type.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +25,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1V9egDlCc0OVaanb77Xu8upPJ0d" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -23,6 +36,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
@@ -79,30 +93,30 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="24" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1577168528646" />
-    <state x="463" y="121" key="FileChooserDialogImpl" timestamp="1577220230340">
+    <state x="463" y="121" key="FileChooserDialogImpl" timestamp="1578581325655">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1577220230340" />
-    <state width="1322" height="556" key="GridCell.Tab.0.bottom" timestamp="1577430402623">
+    <state x="463" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1578581325655" />
+    <state width="1322" height="499" key="GridCell.Tab.0.bottom" timestamp="1578581339147">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="556" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1577430402623" />
-    <state width="1322" height="556" key="GridCell.Tab.0.center" timestamp="1577430402623">
+    <state width="1322" height="499" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1578581339147" />
+    <state width="1322" height="499" key="GridCell.Tab.0.center" timestamp="1578581339147">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="556" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1577430402623" />
-    <state width="1322" height="556" key="GridCell.Tab.0.left" timestamp="1577430402623">
+    <state width="1322" height="499" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1578581339147" />
+    <state width="1322" height="499" key="GridCell.Tab.0.left" timestamp="1578581339147">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="556" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1577430402623" />
-    <state width="1322" height="556" key="GridCell.Tab.0.right" timestamp="1577430402623">
+    <state width="1322" height="499" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1578581339146" />
+    <state width="1322" height="499" key="GridCell.Tab.0.right" timestamp="1578581339147">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="556" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1577430402623" />
-    <state x="263" y="101" key="IDE.errors.dialog" timestamp="1577170653530">
+    <state width="1322" height="499" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1578581339147" />
+    <state x="263" y="101" key="IDE.errors.dialog" timestamp="1578571834531">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="263" y="101" key="IDE.errors.dialog/0.0.1366.728@0.0.1366.728" timestamp="1577170653530" />
+    <state x="263" y="101" key="IDE.errors.dialog/0.0.1366.728@0.0.1366.728" timestamp="1578571834531" />
     <state x="390" y="190" key="com.intellij.ide.util.TipDialog" timestamp="1577178469754">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -116,19 +130,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/CSVparser/TransactionParser.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/CSVparser/TransactionAnalyze.java</url>
           <line>52</line>
           <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/CSVparser/TransactionAnalyze.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/CSVparser/TransactionAnalyze.java</url>

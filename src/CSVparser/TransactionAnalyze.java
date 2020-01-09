@@ -64,8 +64,7 @@ public class TransactionAnalyze {
 
     public static void getSummary (TransactionParseResult result, Type type) {
 
-      if (type == Type.COST) {System.out.println("*********Costs summary******************");}
-      else  {System.out.println("*********Income summary*****************");}
+        type.getTitleForSummary();
 
         sort (result);
         String temp = "";  // предыдущее название
@@ -93,8 +92,8 @@ public class TransactionAnalyze {
 
     private static double getTransactionTypeAndValue (int index, TransactionParseResult result, Type type) {
 
-             if (type == Type.COST) {    return  result.getTransactionList().get(index).getCost(); }
-             else { return  result.getTransactionList().get(index).getIncome(); }
+             if        (type == Type.COST) { return  result.getTransactionList().get(index).getCost(); }
+             else   { return  result.getTransactionList().get(index).getIncome(); }
 
              }
 

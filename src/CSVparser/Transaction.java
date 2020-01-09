@@ -58,11 +58,19 @@ public class Transaction {
         return income;
     }
 
-    public void setTransactionType() {
+    protected void setTransactionType() {
 
-        if (this.getCost() == 0) { this.type = Type.INCOME;}
+        if (this.getCost() == 0) { this.type = Type.INCOME;}  // this - Transaction
         else {this.type = Type.COST;}
     }
+
+
+
+
+
+
+
+
 
 
 
