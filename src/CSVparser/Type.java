@@ -20,11 +20,7 @@ public enum Type {
     }
 
 
-    public Type setType (String type) {
-
-        if (type.equals("income")) { return INCOME; }
-        else  {return COST;}
-    }
+   
     
 
 
