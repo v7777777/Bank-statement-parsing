@@ -32,11 +32,11 @@ public class TransactionParser {
 
             String [] columns = lines.get(i).split(TABLE_PARSING_REGEX);
 
-             if (columns.length != 8) {notValidLines.add(lines.get(i)); continue;}
+            if (columns.length != 8) {notValidLines.add(lines.get(i)); continue;}
 
             addTransaction(structuredTable, columns);
 
-            structuredTable.get(i-1).setTransactionType();
+            structuredTable.get(i-1).type = structuredTable.get(i-1).setType(getOperationType(columns [6]));
 
             }
 
@@ -47,7 +47,9 @@ public class TransactionParser {
              if (columns.length != 8) {notValidLines.add(lines.get(i)); continue;}
 
               addTransaction(structuredTable, columns);
-              structuredTable.get(i-1).setTransactionType();
+
+             structuredTable.get(i-1).type = structuredTable.get(i-1).setType(getOperationType(columns [6]));
+
             }
 
         }
@@ -82,35 +84,72 @@ public class TransactionParser {
 
     private ArrayList<Transaction> addTransaction (ArrayList<Transaction> parsedLines, String [] columns) {
 
+
+
             parsedLines.add(new Transaction(columns [1], //  String accountNumber
                        Currency.getInstance(columns [2]),  //  Currency currency
                             LocalDate.parse(columns [3], format), // LocalDate transactionDate
                                             columns [4], // String mccCode
                           parseCounterparty(columns [5]), // String counterparty
-                                  parseRubs(columns [6]), // long income rubs
-                                  parseCents(columns [6]), // int income cents
-                                  parseRubs(columns [7]), // long cost rubs
-                                  parseCents(columns [7])));  // int cost cents
+                                parseAmount(columns [6], columns [7]) // long amount income [6] or cost [7] rubs and cents
+                                  ));
 
 
 
         return parsedLines;
     }
 
-    private long parseRubs (String incomeOrCost) {
+    private long parseAmount (String income, String cost) {
 
-        incomeOrCost = incomeOrCost.replaceAll("\"", "").trim();
+        long rubly;
+        long kopeyki;
 
-        if (incomeOrCost.contains(",")) {return Long.parseLong(incomeOrCost.substring(0,incomeOrCost.indexOf(",")));}
-        else {return Long.parseLong(incomeOrCost);}  }
+        String amount = getNotNullAmount (income, cost);
 
-    private int parseCents (String incomeOrCost) {
-        incomeOrCost = incomeOrCost.replaceAll("\"", "").trim();
-        if (incomeOrCost.contains(",")) {
-            String cents = incomeOrCost.substring(incomeOrCost.indexOf(",") + 1);
+        amount = amount.replaceAll("\"", "").trim();
+
+        if (amount.contains(","))
+        {
+            rubly = Long.parseLong(amount.substring(0,amount.indexOf(",")));
+            String cents = amount.substring(amount.indexOf(",") + 1);
             if (cents.length() == 1) {cents = cents + "0";}
-            return Integer.parseInt(cents); }
-        else {return 0;   }  }
+            kopeyki = Long.parseLong(cents);
+
+            return rubly*100+kopeyki;
+
+        }
+        else {rubly =  Long.parseLong(amount);
+
+            return rubly*100;
+
+        }
+
+    }
+
+    private String getNotNullAmount (String income, String cost) {
+
+        income = income.trim();
+        cost = cost.trim();
+
+        if (cost.equals("0")  ) {return income; }
+        else {return cost; }
+
+
+    }
+
+    private String getOperationType (String income) {
+
+        income = income.trim();
+        income = income.replaceAll("\"", "");
+
+        String type = "";
+
+        if (income.equals("0")  )
+        { type ="cost";
+        return type; }
+        else {type ="income"; return type ; }
+    }
+
 
 
 }

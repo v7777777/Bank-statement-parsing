@@ -12,25 +12,21 @@ public class Transaction {
     private LocalDate transactionDate;  // [3]
     private String MccCode; // [4]
     private String counterparty;  // [5]
-    private long incomeR; // [6]
-    private int incomeC; // [7]
-    private long costR; // [8]
-    private int costC; // [9]
-    private Type type;
+    private long amount; // [6]   6 и 7 в копейках
+
+    protected Type type;
 
     public Transaction(String accountNumber, Currency currency,
                        LocalDate transactionDate, String mccCode,
-                       String counterparty, long incomeR, int incomeC, long costR, int costC) {
+                       String counterparty, long amount) {
 
         this.accountNumber = accountNumber;
         this.currency = currency;
         this.transactionDate = transactionDate;
         this.MccCode = mccCode;
         this.counterparty = counterparty;
-        this.incomeR = incomeR;
-        this.incomeC = incomeC;
-        this.costR = costR;
-        this.costC = costC;
+        this.amount = amount;
+
     }
 
     public String getAccountNumber () {
@@ -49,20 +45,26 @@ public class Transaction {
         return MccCode;
     }
 
+    public double getAmount () {
+        return (double) amount/100;
+    }
+
     public double getCost () {
-        double cost = (double) costR + (double) costC/100;
-        return cost;
+        if (this.type == Type.COST ) { return getAmount (); }
+        else {return 0;}
     }
+
     public double getIncome () {
-        double income = (double) incomeR + (double) incomeC/100;
-        return income;
+        if (this.type == Type.INCOME ) { return getAmount (); }
+        else {return 0;}
     }
 
-    protected void setTransactionType() {
+    public Type setType (String type) {
 
-        if (this.getCost() == 0) { this.type = Type.INCOME;}  // this - Transaction
-        else {this.type = Type.COST;}
+        if (type.equals("income")) { return Type.INCOME; }
+        else  {return Type.COST;}
     }
+
 
 
 

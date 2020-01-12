@@ -5,7 +5,8 @@ public enum Type {
     COST("cost"),
     INCOME("income");
 
-    private String type;
+    protected String type;
+
 
     Type (String type) {
         this.type = type;
@@ -19,6 +20,11 @@ public enum Type {
     }
 
 
+    public Type setType (String type) {
+
+        if (type.equals("income")) { return INCOME; }
+        else  {return COST;}
+    }
     
 
 

@@ -74,28 +74,31 @@ public class TransactionAnalyze {
 
         {
 
-            if ((getTransactionTypeAndValue(x, result, type) == 0) && !(x == (result.getTransactionList().size() - 1))) {continue;}
+            if (result.getTransactionList().get(x).type.equals(type) )   {
+
 
             if (temp.equals(result.getTransactionList().get(x).getCounterparty()) || x == 0 ) {
-                totalAmount = totalAmount + getTransactionTypeAndValue(x, result, type);
+                totalAmount = totalAmount + result.getTransactionList().get(x).getAmount();
                 temp = result.getTransactionList().get(x).getCounterparty();
                 if (x == (result.getTransactionList().size() - 1) ) { System.out.printf(PRINT_COST_SUMMARY_FORMAT, temp ,totalAmount);}}
 
             else {
-                if (totalAmount != 0) {System.out.printf(PRINT_COST_SUMMARY_FORMAT, temp ,totalAmount);}
-                totalAmount = 0;
-                totalAmount = getTransactionTypeAndValue(x, result, type);
+                if (totalAmount != 0) {System.out.printf(PRINT_COST_SUMMARY_FORMAT, temp ,totalAmount);  }
+                totalAmount = result.getTransactionList().get(x).getAmount();
                 temp = result.getTransactionList().get(x).getCounterparty();
                 if (x == (result.getTransactionList().size() - 1) && totalAmount != 0 ) { System.out.printf(PRINT_COST_SUMMARY_FORMAT, temp ,totalAmount);   }} }
 
+            else if ((x == result.getTransactionList().size() - 1)) {System.out.printf(PRINT_COST_SUMMARY_FORMAT, temp ,totalAmount);}
+
+            else {continue;}
+
+
+
+        }
+
     }
 
-    private static double getTransactionTypeAndValue (int index, TransactionParseResult result, Type type) {
 
-             if        (type == Type.COST) { return  result.getTransactionList().get(index).getCost(); }
-             else   { return  result.getTransactionList().get(index).getIncome(); }
-
-             }
 
 
 
